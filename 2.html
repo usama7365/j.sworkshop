@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.main
+{
+height: 95vh;
+width: 100%;
+position: relative;
+display: flex;
+justify-content: center;
+background-image: linear-gradient( to bottom right,rgba(174,0,255),rgba(0,247,255));
+/* background-image: linear-gradient(to right, rgb(0, 247, 255), rgb(174, 0, 255)); */
+
+align-items: center;
+}
+.a{
+height: 300px;
+width: 300px;
+background-color: white;
+border: 1px solid #000;
+position: relative;
+}
+.cross{
+height: 10px;
+width: 10px;
+position: absolute;
+left: 94%;
+top: 8px;
+background-image: url(./unnamed-removebg-preview.png);
+background-size: 100% 100%;
+}
+.txt
+{
+    width: 100%;
+font-family: sans-serif;
+color: black;
+position: absolute;
+font-size: 27px;
+font-weight: bolder;
+text-align: center;
+top: 20px;
+}
+.b
+{
+    position: absolute;
+top: 70px;
+left: 20px;
+font-family: sans-serif;
+color: grey;
+font-weight: bolder;
+font-size: 15px;
+word-spacing: 1px;
+}
+.txt1
+{
+height: 40px;
+border: 1px solid rgb(206, 204, 204);
+width:90%;
+left: 5%;
+top:95px;
+position: absolute;
+
+}
+.b1
+{
+    position: absolute;
+top: 160px;
+left: 20px;
+font-family: sans-serif;
+color: grey;
+font-weight: bolder;
+font-size: 15px;
+word-spacing: 1px;
+}
+.txt2
+{
+height: 40px;
+border: 1px solid rgb(206, 204, 204);
+width:90%;
+left: 5%;
+top:155px;
+position: absolute;
+}
+.text3
+{
+height: 40px;
+border: 1px solid rgb(206, 204, 204);
+width:90%;
+left: 5%;
+top:215px;
+position: absolute;
+}
+
+#log
+{
+height:30px;
+width: 30%;
+top: 240px;
+font-style: italic;
+position: absolute;
+color: white;
+/* background-image: linear-gradient(to right, rgb(0, 247, 255), rgb(174, 0, 255)); */
+background-color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+left: 5%;
+cursor: pointer;
+border-radius: 10px;
+
+}
+#log1
+{
+    height:30px;
+width: 30%;
+top: 240px;
+position: absolute;
+color: white;
+font-style: italic;
+border-radius: 10px;
+/* background-image: linear-gradient(to right, rgb(0, 247, 255), rgb(174, 0, 255)); */
+background-color: rgb(73, 1, 1);
+display: flex;
+justify-content: center;
+align-items: center;
+left: 50%;
+cursor: pointer;
+
+
+}
+
+
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+<div class="main">
+    <div class="a">
+<div class="cross"></div>
+
+
+
+<div class="txt">Login Form</div>
+
+<input type=" text" class="txt1" placeholder="NAME" >
+<input type="text" email class="txt2" placeholder="EMAIL" >
+
+
+
+
+<button id="log">LOGIN</button>
+<a href="./1.html" >
+
+<button id="log1">SIGN UP</button>
+
+</a>
+
+
+
+</div>
+</div>
+</body>
+
+<script>
+var btn3=document.getElementById('log')
+
+btn3.addEventListener("click",()=>{
+            var searchName = document.getElementsByClassName('txt1')[0];
+            var searchName1 = document.getElementsByClassName('txt2')[0];
+
+        let filterArray = JSON.parse(localStorage.getItem('data'));
+
+        let valueUN = searchName.value;
+        let valueUN1 = searchName1.value;
+
+        var userFilter = filterArray.filter((uN) => {
+            return uN.uname==valueUN && uN.fname==valueUN1
+            console.log(uN);
+    })
+    console.log(userFilter,"mn");
+    
+        if(userFilter.length){
+            alert("matched")
+        }
+        else
+        {
+            alert("not matched")
+        }
+    })
+
+
+
+
+</script>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

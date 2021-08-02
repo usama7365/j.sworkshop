@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main
+        {
+width: 100%;
+height: 97vh;
+border: 1px solid #000;
+position: relative;
+background-image: linear-gradient( to bottom right, green,yellow);
+
+        }
+.h1
+{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+color: white;
+top: 10%;
+font-size: 30px;
+font-weight: bold;
+font-family: sans-serif;
+
+}
+
+        .main1{
+    height: 350px;
+    width: 320px;
+    border: 1px solid #000;
+background-color:goldenrod;
+    position: relative;
+    margin: auto;
+    top: 50px;
+    border-radius: 10px;
+    
+    }
+
+    
+.main{
+    height: 180px;
+    width: 70%;
+    display: flex;
+    text-align: center;
+align-items: center;
+
+    /* border: 1px solid #000; */
+    margin-top: 100px;
+    justify-content:space-evenly;
+    flex-direction: column;
+    position: relative;
+    border-radius: 10px;
+}
+
+
+.N{
+    display: flex;
+justify-content: space-evenly;
+
+}
+.btn1{
+
+    height: 35px;
+    width: 70px;
+    background-color: black;
+    left: 20px;
+    cursor: pointer;
+    top: 82%;
+    font-size: 15.5px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+    border-radius: 10px;
+font-style: italic;
+transition-duration: .7s;
+
+}
+.btn1:hover
+{
+background-color: white;
+transition-duration: .7s;
+color: black;
+cursor: pointer;
+
+
+}
+.btn2{
+    height: 35px;
+    width: 70px;
+    background-color:blue;
+    left: 40%;
+    font-style: italic;
+    cursor: pointer;
+    top: 82%;
+    font-size: 16px;
+    position: absolute;
+    display: flex;
+    outline: none;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+    border-radius: 10px;
+transition-duration: .7s;
+    
+}
+.btn2:hover
+{
+background-color: white;
+color: blue;
+transition-duration: .7s;
+cursor: pointer;
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="main">
+    <div class="main1">
+        <div class="h1">REGISTER FORM</div>
+
+        <div class="main">
+        <input type="text" name="" id="" placeholder="Name">
+        <input type="text" email="" id="" placeholder= "example@gmail.com">
+        <input type="text" name="" id="" placeholder="Password">
+    </div>
+        <div class="N">
+
+
+            <a href="./2.html" >
+
+<button class="btn1">Sign up</button>
+</a>
+<a href="./2.html" >
+
+<button class="btn2" onclick= >Log in</button>
+</a>
+</div>
+    </div>
+    <div class="result">
+
+    </div>
+</div>
+</body>
+<script>
+    var username=document.getElementsByTagName("input")[0]
+    var fathername=document.getElementsByTagName("input")[1]
+    var msg=document.getElementsByTagName("input")[2]
+
+    var btn1=document.getElementsByClassName("btn1")[0]
+
+    var result=document.getElementsByClassName("result")[0]
+
+
+btn1.onclick=()=>{
+
+submit()
+
+}
+    function submit(){
+
+        var  uname=username.value
+var  fname=fathername.value
+var  disc=msg.value
+ if(uname && fname && disc){
+ var obj={uname,fname,disc}
+ console.log(obj)
+  var listitem=JSON.parse(localStorage.getItem('data'))
+if(!listitem){
+ localStorage.setItem('data',JSON.stringify([obj]))
+}
+  else{
+     listitem.push(obj)
+localStorage.setItem('data',JSON.stringify(listitem))
+}
+}
+else{
+    alert("Atention: Fill The Form......")
+}
+click();
+renderdata();
+ }
+function click(){
+    username.value=""
+    fathername.value=""
+    msg.value=""
+}
+function clearul(){
+        localStorage.clear()
+        window.location.reload()
+
+    }
+function renderdata(){
+    console.log("hello")
+ var listitem=JSON.parse(localStorage.getItem('data'))
+ if(listitem){
+  
+   let  list=""
+  listitem.map((elem)=>{
+  
+    
+ result.innerHTML=list
+ 
+
+
+
+})
+
+  console.log(listitem)
+}
+
+}
+renderdata()
+  
+</script>
+</html>
